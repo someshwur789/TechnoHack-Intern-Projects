@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="signup.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <div class="wrapper">
+    <form action="">
+      <h1>Sign up</h1>
+
+      <div class="input-box">
+        <input type="text" placeholder="First Name" required>
+        <i class="input-box"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="text" placeholder="Last Name" required>
+        <i class="input-box"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="email" placeholder="Email id" required>
+        <i class="action"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="text" placeholder="Username" required>
+        <i class='bx bxs-user'></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" placeholder="Password" required>
+        <i class='bx bxs-lock-alt' ></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" placeholder="Confirm Password" 
+        onkeyup="Validate_password()" required> 
+      </div>
+
+      <div class="remember-forgot">
+        <label><input type="checkbox">Remember Me</label>
+        <a href="#">Forgot Password</a>
+      </div>
+
+        <button type="reset" class="btn btn-default" required> 
+            Reset</button>
+
+            <br>
+            <br>
+        <button type="submit" class="btn btn-primary form-submit">Submit</button>
+  
+      <div class="register-link">
+        <p>Already have an account? <a href="index.html">Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function validate_password() {
+
+        let pass = document.getElementById('pass').value;
+        let confirm_pass = document.getElementById('confirm_pass').value;
+        if (pass != confirm_pass) {
+            document.getElementById('wrong_pass_alert').style.color = 'red';
+            document.getElementById('wrong_pass_alert').innerHTML
+                = '☒ Use same password';
+            document.getElementById('create').disabled = true;
+            document.getElementById('create').style.opacity = (0.4);
+        } else {
+            document.getElementById('wrong_pass_alert').style.color = 'green';
+            document.getElementById('wrong_pass_alert').innerHTML =
+                '🗹 Password Matched';
+            document.getElementById('create').disabled = false;
+            document.getElementById('create').style.opacity = (1);
+        }
+    }
+</script>
+
+</body>
+</html>
